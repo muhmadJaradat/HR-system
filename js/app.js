@@ -2,7 +2,7 @@
 let sum=0;
 let myForm=document.getElementById('myForm');
 let myTable=document.getElementById('myTable');
-// console.log(myTable.hasChildNodes());
+
 function Employee(name,email,department)
 {
 this.name=name;
@@ -11,28 +11,21 @@ this.department=department;
 this.employeeSalary=this.salary(100,500);
 Employee.all.push(this);
 }
+
 Employee.all=[]
 
  Employee.prototype.salary =function(min,max){
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-   
+    return Math.floor(Math.random() * (max - min) + min); 
 }
+
 myForm.addEventListener('submit',getTheData);
 
 function getTheData(e){
     e.preventDefault();
-    // console.log(e.target.name.value);
-    
     let newEmployee=new Employee(e.target.name.value,e.target.email.value,e.target.department.value);
-   
-    console.log(Employee.all);
-
     localStorage.setItem('employee',JSON.stringify(Employee.all));
-
-
-    
     window.location.reload();
 }
 
