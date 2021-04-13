@@ -68,3 +68,9 @@ p {
     width: fit-content;
    
 }
+#Footer {
+    padding: 0;
+    margin: 0;
+    border: unset;
+    text-align: center;
+}
